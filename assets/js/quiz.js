@@ -63,7 +63,7 @@ let questions = [
 ];
 
 // correct answers are worth 10 points
-const pointsVal = 1;
+const pointsVal = 10;
 // number of questions to display before game over
 const maxQuestions = questions.length;
 
