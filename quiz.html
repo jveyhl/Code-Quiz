@@ -11,6 +11,18 @@
 <body>
     <div class="container">
         <div id="game" class="justify-center flex-column">
+            <!-- Heads Up Display for question # and score-->
+            <div id="hud">
+                <div id="hud-item">
+                    <p class="hud-prefix">Question</p>
+                    <h1 class="hud-main-text" id="questionCounter">n of N</h1>
+                </div>
+                <div id="hud-item">
+                    <p class="hud-prefix">Score</p>
+                    <h1 class="hud-main-text" id="score">0</h1>
+                </div>
+            </div>
+            <!-- Question and answer choices -->
             <h2 id="question">Question</h2>
             <div class="choice-container">
                 <p class="choice-prefix">1</p>

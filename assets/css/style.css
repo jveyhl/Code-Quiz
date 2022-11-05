@@ -46,8 +46,6 @@ h3 {
     /* take up entire view width */
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
     max-width: 80rem;
     /* center the content */
     margin: 0 auto;
