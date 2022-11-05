@@ -109,18 +109,30 @@ const startGame = () => {
 //recieve selected answer from user
 choices.forEach( choice => {
     choice.addEventListener("click", e => {
-        console.log("e.target from event listener", e.target);
         // ignore clicks until we decide they can answer
         if(!canAnswer) return;
+       
         // make delay between answers
         canAnswer = false;
+        
         // store the user's choice
         const userChoice = e.target;
         // get the choice-text p element's data-number associated with the user's choice
-        const userChoiceNumber = userChoice.dataset["number"];
-        console.log("user choice num from event listener",userChoiceNumber);
+        // convert the string to a number
+        const userChoiceNumber = parseInt(userChoice.dataset["number"]);
+        
+        // apply a correct/incorrect class to choice-container based on the user's choice
+        const applyClass = userChoiceNumber===currentQuestion.answer ? "correct" : "incorrect";
+        userChoice.parentElement.classList.add(applyClass);
+        console.log(userChoice.parentElement.classList);
+
+        // pause for 1 second before remove correct/incorrect class
+        setTimeout( () => {
+        // remove correct/incorrect class
+        userChoice.parentElement.classList.remove(applyClass);
         // get the next question
         getQuestion();
+        }, 1000);
     });
 });
 
