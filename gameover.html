@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz Game Over</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="./assets/css/quiz.css"> -->
 </head>
 <body>
-    <h1>GAME OVER</h1>
+    <div class="container">
+        <div id="gameover" class="container flex-column text-center">
+            <h1 id="finalScore"></h1>
+            <!-- Form for user to submit score -->
+            <form>
+                <input type="text" name="userName" id="userName" placeholder="userName">
+                <button type="submit" class="btn" id="savebtn" onclick="saveScore(event)" disabled>SAVE</button>
+            </form>
+            <a href="./quiz.html" class="btn">Play Again</a>
+            <a href="/" class="btn">Go Home</a>
+        </div>
+    </div>
+    <script src="./assets/js/gameover.js"></script>
 </body>
 </html>
