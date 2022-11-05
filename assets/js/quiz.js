@@ -95,12 +95,10 @@ const getQuestion = () => {
         const number = choice.dataset["number"];
         // concatenate the string "choice" with the data set number to create an index to access the answer choices in the current question
         choice.innerText = currentQuestion["choice"+number];
-        console.log("number from get q",number)
     });
 
     // remove used question from availableQuestions array
     availableQuestions.splice(questionIndex, 1);
-    console.log("available q from get q", availableQuestions);
 
     // allow user to submit answer
     canAnswer = true;
@@ -114,7 +112,7 @@ const startGame = () => {
     score = 0;
     // use spread operator to copy questions array content into new array to pop off asked questions
     availableQuestions = [...questions];
-    console.log("available questions from startgame()",availableQuestions);
+
     getQuestion();
 };
 

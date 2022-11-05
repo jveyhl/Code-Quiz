@@ -1,0 +1,14 @@
+#highScoresList {
+    /* remove bullet points form ul */
+    list-style: none;
+    /* remove left indent from bullet points */
+    padding-left: 0;
+    margin-bottom: 4rem;
+}
+
+/* each li generated in highscores.js was given this class */
+.high-score {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+}
+
