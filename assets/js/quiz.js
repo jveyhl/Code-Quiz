@@ -69,8 +69,10 @@ const maxQuestions = questions.length;
 
 //get a random question from the questions array
 const getQuestion = () => {
-    // verify that the availableQuestions array is not empty
+    // verify that the availableQuestions array is not empty and action when all questions are finished
     if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
+        // save user score to localStorage
+        localStorage.setItem("latestScore", score);
         // when all questions have been asked the game is over
         return window.location.assign("./gameover.html");
     };
