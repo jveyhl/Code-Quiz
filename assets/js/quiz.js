@@ -1,7 +1,14 @@
 // Get reference to h2 that holds the question
 const question = document.querySelector("#question");
+
 // Get reference to all p that holds the answer choices and make it an array
 const choices = Array.from(document.querySelectorAll(".choice-text"));
+
+// Get reference to hud h1 that holds the score
+const hudScore = document.querySelector("#score");
+
+// Get reference to hud h1 that holds the question counter
+const hudCount = document.querySelector("#questionCounter");
 
 let currentQuestion = {};
 // for creating a delay between questions
@@ -56,7 +63,7 @@ let questions = [
 ];
 
 // correct answers are worth 10 points
-const pointsVal = 10;
+const pointsVal = 1;
 // number of questions to display before game over
 const maxQuestions = questions.length;
 
@@ -71,6 +78,9 @@ const getQuestion = () => {
     // update number of questions asked
     questionCounter++;
     
+    // update the hud questionCounter text
+    hudCount.innerText = `${questionCounter}/${maxQuestions}`;
+
     // get a random number to use as an index for the quesiton array
     const questionIndex = Math.floor(Math.random()*availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
@@ -106,7 +116,7 @@ const startGame = () => {
     getQuestion();
 };
 
-//recieve selected answer from user
+// recieve selected answer from user
 choices.forEach( choice => {
     choice.addEventListener("click", e => {
         // ignore clicks until we decide they can answer
@@ -124,7 +134,11 @@ choices.forEach( choice => {
         // apply a correct/incorrect class to choice-container based on the user's choice
         const applyClass = userChoiceNumber===currentQuestion.answer ? "correct" : "incorrect";
         userChoice.parentElement.classList.add(applyClass);
-        console.log(userChoice.parentElement.classList);
+
+        // update score
+        if (applyClass === "correct") {
+            updateScore(pointsVal);
+        };
 
         // pause for 1 second before remove correct/incorrect class
         setTimeout( () => {
@@ -135,5 +149,12 @@ choices.forEach( choice => {
         }, 1000);
     });
 });
+
+// update the user's score
+const updateScore = (num) => {
+    score += num;
+    // display updated score in hud
+    hudScore.innerText = score;
+};
 
 startGame();
