@@ -8,6 +8,7 @@ let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionCounter = 0;
+// five quiz question objects in an array
 let questions = [
     {
         question: "Commonly used data types do NOT include:",
@@ -34,7 +35,7 @@ let questions = [
         answer: 3
     },
     {
-        question: "When beign assigned to variables, string values must be enclosed within:",
+        question: "When assigned to variables, string values must be enclosed within:",
         choice1: "quotes",
         choice2: "curly brackets",
         choice3: "commas",
@@ -50,3 +51,24 @@ let questions = [
         answer: 2
     }
 ];
+
+// correct answers are worth 10 points
+const pointsVal = 10;
+
+// get a random question from the questions array
+const getQuestion = () => {
+    // get a random number to use as an index for the quesiton array
+    let questionIndex = Math.floor(Math.random()*questions.length);
+    let chosenQuestion = questions[questionIndex];
+    // set the question in the h2
+    question.innerText = chosenQuestion.question; 
+}
+
+// initialize a new game
+const startGame = () => {
+    // set score to zero
+    score = 0;
+    getQuestion();
+}
+
+startGame();
