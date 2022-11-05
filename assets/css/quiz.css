@@ -1,0 +1,32 @@
+
+.choice-container {
+    display: flex;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    font-size: 2rem;
+    border: 0.1rem solid grey;
+    background-color: white;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    /* drop shadow */
+    box-shadow: 0 0.4rem 1.4rem darkblue;
+    /* move buttons up slightly */
+    transform: translateY(-0.1rem);
+    /* prevent jump to transform */
+    transition: transform 150ms;
+}
+
+.choice-prefix {
+    padding: 1.5rem 2.5rem;
+    background-color: blue;
+    color: white;
+}
+
+.choice-text {
+    padding: 1.5rem;
+    /* have the text span the full choice-container */
+    width: 100%;
+}
+

@@ -81,19 +81,19 @@ h3 {
 }
 
 /* BUTTONS */
-button {
+.btn {
     font-size: 2rem;
-    border-radius: 1.5rem;
     padding: 1rem;
     width: 20rem;
     text-align: center;
     border: 0.1rem solid blue;
     margin-bottom: 1rem;
+    text-decoration: none;
     color: blue;
     background-color: white;
 }
 
-button:hover {
+.btn:hover {
     cursor: pointer;
     /* drop shadow */
     box-shadow: 0 0.4rem 1.4rem darkblue;
@@ -103,7 +103,7 @@ button:hover {
     transition: transform 150ms;
 }
 
-button[disabled]:hover {
+.btn[disabled]:hover {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
