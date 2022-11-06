@@ -21,13 +21,13 @@ N/A
 
 The following images show the web application's appearance and functionality:
 
-![Alt text](/assets/images/home.png"Home")
+![Alt text](/assets/images/home.png)
 
-![Alt text](/assets/images/quiz.png"Quiz")
+![Alt text](/assets/images/quiz.png)
 
-![Alt text](/assets/images/gameover.png"Game Over")
+![Alt text](/assets/images/gameover.png)
 
-![Alt text](/assets/images/highscores.png"High Scores")
+![Alt text](/assets/images/highscores.png)
 
 ## Deployed Application
 
