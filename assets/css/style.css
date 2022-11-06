@@ -12,10 +12,7 @@
     color: black;
 }
 
-h1,
-h2,
-h3,
-h4 {
+h1, h2 {
     margin-bottom: 1rem;
 }
 
@@ -25,27 +22,21 @@ h1 {
     margin-bottom: 5rem;
 }
 
-h1 > span {
-    font-size: 4rem;
-    font-weight: 500;
-}
-
 h2 {
     font-size: 3rem;
     margin-bottom: 4rem;
 }
 
-h3 {
-    font-size: 3rem;
-}
-
 /* UTILITIES */
+
 .container {
     /* take up entire view width */
     width: 100vw;
-    /* take up entire view width */
+    /* take up entire view height */
     height: 100vh;
     display: flex;
+    justify-content: center;
+    align-items: center;
     max-width: 80rem;
     /* center the content */
     margin: 0 auto;
@@ -58,14 +49,14 @@ h3 {
     width: 100%;
 }
 
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
 .flex-center {
     justify-content: center;
     align-items: center;
-}
-
-.flex-column {
-    justify-content: flex;
-    flex-direction: column;
 }
 
 .justify-center {
@@ -88,6 +79,7 @@ h3 {
     text-align: center;
     border: 0.1rem solid blue;
     margin-bottom: 1rem;
+    /* remove anchor tag underline */
     text-decoration: none;
     color: blue;
     background-color: white;
