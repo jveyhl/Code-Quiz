@@ -132,7 +132,7 @@ function startTimer() {
       timerCount--;
       hudTimer.textContent = timerCount;
       
-      if (timerCount === 0) {
+      if (timerCount <= 0) {
         console.log(timerCount);
         // save user score to localStorage
         localStorage.setItem("latestScore", score);
