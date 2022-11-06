@@ -10,6 +10,9 @@ const hudScore = document.querySelector("#score");
 // Get reference to hud h1 that holds the question counter
 const hudCount = document.querySelector("#questionCounter");
 
+// Get reference to hud h1 that holds the time
+const hudTimer = document.querySelector("#timer");
+
 let currentQuestion = {};
 // for creating a delay between questions
 let canAnswer = false;
@@ -17,6 +20,9 @@ let score = 0;
 let questionCounter = 0;
 // will act as a copy of the questions array to be modified without changing the questions array
 let availableQuestions = [];
+// timer variables
+let timer;
+let timerCount;
 
 // five quiz question objects in an array
 let questions = [
@@ -69,7 +75,7 @@ const maxQuestions = questions.length;
 
 //get a random question from the questions array
 const getQuestion = () => {
-    // verify that the availableQuestions array is not empty and action when all questions are finished
+    // check number of available questions left, question counter to decide if the game continues or is over
     if (availableQuestions.length === 0 || questionCounter >= maxQuestions) {
         // save user score to localStorage
         localStorage.setItem("latestScore", score);
@@ -110,10 +116,30 @@ const startGame = () => {
     questionCounter = 0;
     // set score to zero
     score = 0;
+    // set timer
+    timerCount = 25;
     // use spread operator to copy questions array content into new array to pop off asked questions
     availableQuestions = [...questions];
 
     getQuestion();
+    startTimer();
+};
+
+// Control timer start/stop
+function startTimer() {
+    // Initiate timer
+    timer = setInterval(function() {
+      timerCount--;
+      hudTimer.textContent = timerCount;
+      
+      if (timerCount === 0) {
+        console.log(timerCount);
+        // save user score to localStorage
+        localStorage.setItem("latestScore", score);
+        // when all questions have been asked the game is over
+        return window.location.assign("./gameover.html");
+      }
+    }, 1000);
 };
 
 // recieve selected answer from user
@@ -135,9 +161,11 @@ choices.forEach( choice => {
         const applyClass = userChoiceNumber===currentQuestion.answer ? "correct" : "incorrect";
         userChoice.parentElement.classList.add(applyClass);
 
-        // update score
+        // update score if correct or reduce time by 5 seconds if incorrect
         if (applyClass === "correct") {
             updateScore(pointsVal);
+        } else {
+            timerCount -= 5;
         };
 
         // pause for 1 second before remove correct/incorrect class
