@@ -18,7 +18,7 @@ const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const highScoreLength = 5;
 
 // Update the final score text
-finalScore.innerText = latestScore;
+finalScore.innerText = `Final Score: ${latestScore}`;
 
 userName.addEventListener("keyup", () => {
     // keep save button disable if the form is empty
